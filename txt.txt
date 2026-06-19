@@ -1,0 +1,5 @@
+points at id 1 :
+https://api.github.com/users/octocat
+
+to be redireceted to:
+https://api.open-meteo.com/v1/forecast?latitude=26.42&longitude=50.09&current_weather=true
