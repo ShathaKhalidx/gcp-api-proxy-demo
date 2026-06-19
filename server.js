@@ -11,7 +11,7 @@ app.get("/proxy", async (req, res) => {
 
         // Call external public server
         const response = await fetch(
-            "https://jsonplaceholder.typicode.com/posts/1"
+            "https://api.github.com/users/octocat"
         );
 
         const data = await response.json();
