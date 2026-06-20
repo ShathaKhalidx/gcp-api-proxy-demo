@@ -4,28 +4,24 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-// Your GCP endpoint
-app.get("/proxy", async (req, res) => {
+app.get("/", async (req, res) => {
 
     try {
 
-        // Call external public server
+        // Direct communication with external server
         const response = await fetch(
             "https://api.github.com/users/octocat"
         );
 
         const data = await response.json();
 
-
-        // Return external server response
         res.json({
-            message: "Response came through GCP",
-            source: "jsonplaceholder",
+            message: "Connected successfully",
+            externalServer: "GitHub",
             data: data
         });
 
-
-    } catch(error) {
+    } catch (error) {
 
         res.status(500).json({
             error: error.message
@@ -37,5 +33,5 @@ app.get("/proxy", async (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`GCP proxy running on port ${PORT}`);
+    console.log(`App running on port ${PORT}`);
 });
